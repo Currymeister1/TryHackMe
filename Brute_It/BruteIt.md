@@ -32,9 +32,10 @@ Following are the results of the command:
 2. /admin (Status: 301)
 3. /.htpasswd (Status: 403)
 4. /.htpasswds (Status: 403)
+
 Besides **/admin**, everything else is 403. 
 
-Now we can go to the admin page -> ip-address/admin. 
+Now we can go to the admin page -> Open a broweser and type: ip-address/admin. 
 
 ##  Getting a shell 
 Now we have to login as admin. To find the username, inspect the website. There is a comment telling the user John, that the admin username is **admin**.
@@ -44,9 +45,9 @@ Using hydra, we get the password: **xavier**.
 
 ### Crack the RSA key you found.
 ### What is John's RSA Private Key passphrase?
-After using the credential, you use the flag **THM{brut3_f0rce_is_e4sy}** and a file. Download the file. 
-Use [ssh2jonh](https://github.com/openwall/john/blob/bleeding-jumbo/run/ssh2john.py) to generate the hash. 
-``` python3 ssh2john.py ~/TryHackMe/RSA_KEY > hash.txt```
+After using the credential, you get the flag **THM{brut3_f0rce_is_e4sy}** and a file. Download the file. 
+Use [ssh2jonh](https://github.com/openwall/john/blob/bleeding-jumbo/run/ssh2john.py) to generate the hash. ssh2john isnt shipped with standard john-the-ripper. I cloned the linked repo and ran the python script. The location of the script is:
+``` python3 /john/run/ssh2john.py ~/TryHackMe/RSA_KEY > hash.txt```
 Now with ``` john hash.txt rockyou.txt ```, we get the passphrase for john: **rockinroll**. 
 We can now ssh: ```ssh -i RSA_KEY john@ip-address```. 
 ### user.txt
