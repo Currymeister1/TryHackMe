@@ -56,6 +56,9 @@ There we find user.txt containing the flag: **THM{a_password_is_not_a_barrier}**
 **THM{brut3_f0rce_is_e4sy}**
 
 ## Privilege Escalation
+### Find a form to escalate your privileges.
+### What is the root's password?
+
 Now we are connected to the remote server using Johns creds, it's time to get the root privileges on this machine. 
 Use ```sudo -l``` to see which commands can John execute as root.
 **User john may run the following commands on bruteit:
