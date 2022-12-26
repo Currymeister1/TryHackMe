@@ -27,7 +27,7 @@ The -sV flag shows the the service version: **OpenSSH 7.6p1**
 We can find directories on webserver with help of [gobuster](https://www.kali.org/tools/gobuster/).
 Gobuster requires the ip address of the target and a wordlist.
 ```gobuster -u 10.10.196.80 -w known_directory_names```
-Following our the results of the command:
+Following are the results of the command:
 1. /.htaccess (Status: 403)
 2. /admin (Status: 301)
 3. /.htpasswd (Status: 403)
