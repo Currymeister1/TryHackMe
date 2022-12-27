@@ -53,3 +53,32 @@ Decrypt the string, the answer is: **Area51**
 
 ### Who is the other agent (in full name)?
 To find the name of the other agent was kinda hard. After searching online, I stumbled on [stegcrack](https://www.kali.org/tools/stegcracker/)
+```stegcracker cute-alien.jpg pass.txt ```. (Save the password in a txt file)
+You will get .out file. Open it to see the name of the agent **james** and password **hackerrules**.
+
+## Capture the user flag 
+With the information, use ssh login.
+### What is the user flag?
+The flag is in the home directory: **b03d975e8c92a7c04146cfa7a5a313c7**
+### What is the incident of the photo called? 
+Use scp to copy the image to local: ``` scp james@10.10.229.189:~/Alien_autospy.jpg .```. Here I was again dumbfounded and have to look at the hint. 
+Its say reverse and Fox News. Use Google reverse image search and find the article by Fox News.
+The answer is: **Roswell alien autopsy**
+
+## Privilege escalation 
+Coming to the fun part.
+
+### CVE number for the escalation 
+Use ```sudo -l``` and we see that ```(ALL, !root) /bin/bash```. 
+If you google this, you will find there is a [Security Bypass exploit](https://www.exploit-db.com/exploits/47502). 
+Download the exploit from exploit-db and using ``` scp 47502.py james@10.10.229.189:~ ``` copy it to the remote.
+Now ```python3 47502.py ```.
+You should be logged as root now. 
+Btw CVE is: **CVE-2019-14287**.
+
+### What is the root flag?
+The root flag is in the root home directory: **b53a02f55b57d4439e3341834d70c062**
+
+### (Bonus) Who is Agent R?
+The name of Agent R is also found in that file: **DesKel**
+
